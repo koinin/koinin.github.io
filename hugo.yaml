@@ -1,4 +1,4 @@
-baseurl: "https://hiandy24.github.io/"  # please update this to your actual URL
+baseurl: "https://koinin.github.io"  # please update this to your actual URL
 languageCode: "zh"
 title: "logn"
 theme: "hugo-xmin"
@@ -47,5 +47,5 @@ markup:
 
 sitemap:
   changeFreq: "weekly"
-  filename: sitemap.xml
+  filename: index.xml
   priority: 1
