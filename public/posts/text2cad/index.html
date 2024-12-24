@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  基本信息
+  #
+
+论文地址：http://arxiv.org/abs/2409.17106
+repository: https://sadilkhan.github.io/text2cad-project/
+
+  摘要与背景
+  #
+
+
+  摘要
+  #
+
+在现代软件中制作复杂的计算机辅助设计 (CAD) 模型原型可能非常耗时。这是由于缺乏能够快速生成更简单的中间零件的智能系统。我们提出了 Text2CAD，这是第一个使用适合所有技能水平的设计师友好指令生成文本到参数 CAD 模型的 AI 框架。此外，我们引入了一个数据注释管道，用于使用 Mistral 和 LLaVA-NeXT 根据 DeepCAD 数据集的自然语言指令生成文本提示。该数据集包含 ~ 170K 个模型和 ~ 660K 个文本注释，从抽象 CAD 描述（例如，生成两个同心圆柱体）到详细规范（例如，绘制两个以 (x, y) 为中心、半径为 r1、r2 的圆，并沿d 后正常&hellip;）。在 Text2CAD 框架内，我们提出了一种基于端到端 Transformer 的自回归网络，用于从输入文本生成参数化 CAD 模型。我们通过多种指标来评估模型的性能，包括视觉质量、参数精度和几何精度。我们提出的框架在人工智能辅助设计应用中显示出巨大的潜力。项目页面位于 https://sadilkhan.github.io/text2cad-project/。
+
+可以将其结合设计，为中间件模型创建文本提示（零件和参数），可以方便搜索
+
+
+  创新点
+  #
+
+
+作为第一个使用文本描述生成参数化 3D CAD 模型的 AI 框架
+提出了一个数据注释管道，它利用LLM 和VLM 生成一个数据集，其中包含具有不同复杂程度和参数细节的文本提示
+提出了一种基于端到端 Transformer 的自回归架构，用于根据输入文本提示生成 CAD 设计历史记录。
+
+
+  研究内容
+  #
+
+
+  算法定义
+  #
+
+
+Text2CAD数据标注
+
+">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/posts/text2cad/">
+  <meta property="og:site_name" content="Yat&#39;s blog">
+  <meta property="og:title" content="text2CAD论文调研">
+  <meta property="og:description" content="基本信息 # 论文地址：http://arxiv.org/abs/2409.17106 repository: https://sadilkhan.github.io/text2cad-project/
+摘要与背景 # 摘要 # 在现代软件中制作复杂的计算机辅助设计 (CAD) 模型原型可能非常耗时。这是由于缺乏能够快速生成更简单的中间零件的智能系统。我们提出了 Text2CAD，这是第一个使用适合所有技能水平的设计师友好指令生成文本到参数 CAD 模型的 AI 框架。此外，我们引入了一个数据注释管道，用于使用 Mistral 和 LLaVA-NeXT 根据 DeepCAD 数据集的自然语言指令生成文本提示。该数据集包含 ~ 170K 个模型和 ~ 660K 个文本注释，从抽象 CAD 描述（例如，生成两个同心圆柱体）到详细规范（例如，绘制两个以 (x, y) 为中心、半径为 r1、r2 的圆，并沿d 后正常…）。在 Text2CAD 框架内，我们提出了一种基于端到端 Transformer 的自回归网络，用于从输入文本生成参数化 CAD 模型。我们通过多种指标来评估模型的性能，包括视觉质量、参数精度和几何精度。我们提出的框架在人工智能辅助设计应用中显示出巨大的潜力。项目页面位于 https://sadilkhan.github.io/text2cad-project/。
+可以将其结合设计，为中间件模型创建文本提示（零件和参数），可以方便搜索
+创新点 # 作为第一个使用文本描述生成参数化 3D CAD 模型的 AI 框架 提出了一个数据注释管道，它利用LLM 和VLM 生成一个数据集，其中包含具有不同复杂程度和参数细节的文本提示 提出了一种基于端到端 Transformer 的自回归架构，用于根据输入文本提示生成 CAD 设计历史记录。 研究内容 # 算法定义 # Text2CAD数据标注">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-11-17T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-11-17T00:00:00+00:00">
+<title>text2CAD论文调研 | Yat&#39;s blog</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/posts/text2cad/">
+<link rel="stylesheet" href="/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css" integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.06038fc527f8b80f67d26491eed854f7ecb49f0f931c65497ed964cc527a4777.js" integrity="sha256-BgOPxSf4uA9n0mSR7thU9&#43;y0nw&#43;THGVJftlkzFJ6R3c=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Yat&#39;s blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-d00f65e19dd128f7f00a5ed86be04a2a" class="toggle"  />
+    <label for="section-d00f65e19dd128f7f00a5ed86be04a2a" class="flex justify-between">
+      <a href="/docs/example/" class="">Blog</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/example/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B7%91%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%BB%8F%E5%8E%86/" class="">记录一次服务器跑大模型经历</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/docs/example/gcore-hk-basic-vm/" class="">GCore HK Basic vm</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>text2CAD论文调研</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#摘要">摘要</a></li>
+    <li><a href="#创新点">创新点</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#算法定义">算法定义</a></li>
+    <li><a href="#算法流程">算法流程</a></li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown book-post">
+  <h2>
+    text2CAD论文调研
+  </h2>
+  
+  <div class="flex align-center text-small book-post-date">
+    <img src="/svg/calendar.svg" class="book-icon " alt="" />
+    <span>November 17, 2024</span>
+  </div>
+
+
+
+  
+
+  
+
+
+  <div class="book-post-content"><h1 id="基本信息">
+  基本信息
+  <a class="anchor" href="#%e5%9f%ba%e6%9c%ac%e4%bf%a1%e6%81%af">#</a>
+</h1>
+<p>论文地址：http://arxiv.org/abs/2409.17106
+repository: <a href="https://sadilkhan.github.io/text2cad-project/">https://sadilkhan.github.io/text2cad-project/</a></p>
+<h1 id="摘要与背景">
+  摘要与背景
+  <a class="anchor" href="#%e6%91%98%e8%a6%81%e4%b8%8e%e8%83%8c%e6%99%af">#</a>
+</h1>
+<h2 id="摘要">
+  摘要
+  <a class="anchor" href="#%e6%91%98%e8%a6%81">#</a>
+</h2>
+<p>在现代软件中制作复杂的计算机辅助设计 (CAD) 模型原型可能非常耗时。这是由于缺乏能够快速生成更简单的中间零件的智能系统。我们提出了 Text2CAD，这是第一个使用适合所有技能水平的设计师友好指令生成文本到参数 CAD 模型的 AI 框架。此外，我们引入了一个数据注释管道，用于使用 Mistral 和 LLaVA-NeXT 根据 DeepCAD 数据集的自然语言指令生成文本提示。该数据集包含 ~ 170K 个模型和 ~ 660K 个文本注释，从抽象 CAD 描述（例如，生成两个同心圆柱体）到详细规范（例如，绘制两个以 (x, y) 为中心、半径为 r1、r2 的圆，并沿d 后正常&hellip;）。在 Text2CAD 框架内，我们提出了一种基于端到端 Transformer 的自回归网络，用于从输入文本生成参数化 CAD 模型。我们通过多种指标来评估模型的性能，包括视觉质量、参数精度和几何精度。我们提出的框架在人工智能辅助设计应用中显示出巨大的潜力。项目页面位于 <a href="https://sadilkhan.github.io/text2cad-project/">https://sadilkhan.github.io/text2cad-project/</a>。</p>
+<blockquote>
+<p>可以将其结合设计，为中间件模型创建文本提示（零件和参数），可以方便搜索</p>
+</blockquote>
+<h2 id="创新点">
+  创新点
+  <a class="anchor" href="#%e5%88%9b%e6%96%b0%e7%82%b9">#</a>
+</h2>
+<ol>
+<li>作为第一个使用文本描述生成参数化 3D CAD 模型的 AI 框架</li>
+<li>提出了一个数据注释管道，它利用LLM 和VLM 生成一个数据集，其中包含具有不同复杂程度和参数细节的文本提示</li>
+<li>提出了一种基于端到端 Transformer 的自回归架构，用于根据输入文本提示生成 CAD 设计历史记录。</li>
+</ol>
+<h1 id="研究内容">
+  研究内容
+  <a class="anchor" href="#%e7%a0%94%e7%a9%b6%e5%86%85%e5%ae%b9">#</a>
+</h1>
+<h2 id="算法定义">
+  算法定义
+  <a class="anchor" href="#%e7%ae%97%e6%b3%95%e5%ae%9a%e4%b9%89">#</a>
+</h2>
+<ul>
+<li>Text2CAD数据标注</li>
+</ul>
+<p><img src="./assets/image-20241117174939681.png" alt="image-20241117174939681" /></p>
+<ul>
+<li></li>
+<li>Tranformer</li>
+</ul>
+<h2 id="算法流程">
+  算法流程
+  <a class="anchor" href="#%e7%ae%97%e6%b3%95%e6%b5%81%e7%a8%8b">#</a>
+</h2>
+<h1 id="实验">
+  实验
+  <a class="anchor" href="#%e5%ae%9e%e9%aa%8c">#</a>
+</h1>
+<h1 id="结论">
+  结论
+  <a class="anchor" href="#%e7%bb%93%e8%ae%ba">#</a>
+</h1>
+</div>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#摘要">摘要</a></li>
+    <li><a href="#创新点">创新点</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#算法定义">算法定义</a></li>
+    <li><a href="#算法流程">算法流程</a></li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

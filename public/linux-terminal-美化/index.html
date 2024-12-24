@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Linux terminal 美化 | yat blog</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Linux terminal 美化</span></h1>
+
+<h2 class="date">2024/08/11</h2>
+</div>
+
+<main>
+<p>通过.bashrc美化shell</p>
+<pre><code>PS1=&quot;\[\\\[\\e\[01;37m\\\]\\t\]\[\\\[\\e\[01;32m\\\]\\u\\\[\\e\[37m\\\]@\\h \\\[\\e\[36m\\\]\\w\\\[\\e\[m\\\]\]\\\\$ &quot; 
+</code></pre>
+<p>通过.vimrc美化vim</p>
+<pre><code>syntax on &quot; 设置语法高亮 
+set nu &quot; 设置行数显示 
+set tabstop=4 &quot; 设置tab缩进长度为4空格 
+set autoindent &quot; 设置自动缩进，适用所有类型文件 
+set cindent &quot; 针对C语言的自动缩进功能，在C语言的编程环境中，比autoindent更加精准 
+set list lcs=tab:\\|\\ &quot; 设置tab提示符号为 &quot;|&quot;，注意最后一个反斜杠后面要留有空格 
+set cc=0 &quot; 设置高亮的列，这里设置为0，代表关闭 set cursorline &quot; 突出显示当前行 
+set showmode 
+set showcmd 
+set mouse =a 
+set t\_Co=256 
+set relativenumber 
+set noerrorbells 
+set vb t\_vb=
+set encoding=utf-8 set termencoding=utf-8
+
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr set fileencoding=utf-8 
+</code></pre>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  © <a href="https://yihui.org">Yihui Xie</a> 2017 &ndash; 2024 | <a href="https://github.com/yihui">Github</a> | <a href="https://twitter.com/xieyihui">Twitter</a>
+  
+  </footer>
+  </body>
+</html>
+

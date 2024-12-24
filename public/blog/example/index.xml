@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on Yat&#39;s blog</title>
+    <link>http://localhost:1313/blog/example/</link>
+    <description>Recent content in blog on Yat&#39;s blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/example/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>text2CAD论文调研</title>
+      <link>http://localhost:1313/blog/example/text2cad/</link>
+      <pubDate>Sun, 17 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/text2cad/</guid>
+      <description>&lt;h1 id=&#34;基本信息dd&#34;&gt;&#xA;  基本信息dd&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e5%9f%ba%e6%9c%ac%e4%bf%a1%e6%81%afdd&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;论文地址：http://arxiv.org/abs/2409.17106&#xA;repository: &lt;a href=&#34;https://sadilkhan.github.io/text2cad-project/&#34;&gt;https://sadilkhan.github.io/text2cad-project/&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;摘要与背景&#34;&gt;&#xA;  摘要与背景&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e6%91%98%e8%a6%81%e4%b8%8e%e8%83%8c%e6%99%af&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;摘要&#34;&gt;&#xA;  摘要&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e6%91%98%e8%a6%81&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;在现代软件中制作复杂的计算机辅助设计 (CAD) 模型原型可能非常耗时。这是由于缺乏能够快速生成更简单的中间零件的智能系统。我们提出了 Text2CAD，这是第一个使用适合所有技能水平的设计师友好指令生成文本到参数 CAD 模型的 AI 框架。此外，我们引入了一个数据注释管道，用于使用 Mistral 和 LLaVA-NeXT 根据 DeepCAD 数据集的自然语言指令生成文本提示。该数据集包含 ~ 170K 个模型和 ~ 660K 个文本注释，从抽象 CAD 描述（例如，生成两个同心圆柱体）到详细规范（例如，绘制两个以 (x, y) 为中心、半径为 r1、r2 的圆，并沿d 后正常&amp;hellip;）。在 Text2CAD 框架内，我们提出了一种基于端到端 Transformer 的自回归网络，用于从输入文本生成参数化 CAD 模型。我们通过多种指标来评估模型的性能，包括视觉质量、参数精度和几何精度。我们提出的框架在人工智能辅助设计应用中显示出巨大的潜力。项目页面位于 &lt;a href=&#34;https://sadilkhan.github.io/text2cad-project/&#34;&gt;https://sadilkhan.github.io/text2cad-project/&lt;/a&gt;。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;可以将其结合设计，为中间件模型创建文本提示（零件和参数），可以方便搜索&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;创新点&#34;&gt;&#xA;  创新点&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e5%88%9b%e6%96%b0%e7%82%b9&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;作为第一个使用文本描述生成参数化 3D CAD 模型的 AI 框架&lt;/li&gt;&#xA;&lt;li&gt;提出了一个数据注释管道，它利用LLM 和VLM 生成一个数据集，其中包含具有不同复杂程度和参数细节的文本提示&lt;/li&gt;&#xA;&lt;li&gt;提出了一种基于端到端 Transformer 的自回归架构，用于根据输入文本提示生成 CAD 设计历史记录。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h1 id=&#34;研究内容&#34;&gt;&#xA;  研究内容&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e7%a0%94%e7%a9%b6%e5%86%85%e5%ae%b9&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;算法定义&#34;&gt;&#xA;  算法定义&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e7%ae%97%e6%b3%95%e5%ae%9a%e4%b9%89&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Text2CAD数据标注&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;assets/image-20241117230911487.png&#34; alt=&#34;image-20241117230911487&#34; /&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>记录一次zsh配置流程</title>
+      <link>http://localhost:1313/blog/example/zsh%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Sun, 03 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/zsh%E9%85%8D%E7%BD%AE%E6%8C%87%E5%8D%97/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;记录一次zsh配置流程（zsh + oh my zsh）&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;DD系统&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://github.com/bin456789/reinstall&#34;&gt;https://github.com/bin456789/reinstall&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;ol start=&#34;2&#34;&gt;&#xA;&lt;li&gt;安装zsh&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apt install zsh -y&#xD;&#xA;chsh -s /bin/zsh&#xD;&#xA;# reboot&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;安装 OMZ&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sh -c &amp;#34;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&amp;#34;&#xD;&#xA;&#xD;&#xA;# 配置文件&#xD;&#xA;~/.zshrc&#xD;&#xA;&#xD;&#xA;# 插件&#xD;&#xA;~/.oh-my-zsh/custom/plugins&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>Mamba2 pre-trained model使用</title>
+      <link>http://localhost:1313/blog/example/mamba2-pre-trained-model%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 12 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/mamba2-pre-trained-model%E4%BD%BF%E7%94%A8/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;参考 &lt;a href=&#34;https://github.com/vasqu/mamba2-torch&#34;&gt;https://github.com/vasqu/mamba2-torch&lt;/a&gt; &amp;gt; &lt;a href=&#34;https://huggingface.co/AntonV/mamba2-130m-av&#34;&gt;https://huggingface.co/AntonV/mamba2-130m-av&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;这里用的是作者自己转换的mamba2参数模型（从原始版本转换成hf的transfromer兼容版本），并提供了一个本地包，但是安装包的时候出现一点问题，版本不符合 需要把requirements.txt中的torch triton==2.2.0 改成你现在的版本，我测试没什么问题&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Linux terminal 美化</title>
+      <link>http://localhost:1313/blog/example/linux-terminal-%E7%BE%8E%E5%8C%96/</link>
+      <pubDate>Sun, 11 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/linux-terminal-%E7%BE%8E%E5%8C%96/</guid>
+      <description>&lt;p&gt;通过.bashrc美化shell&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;PS1=&amp;#34;\[\\\[\\e\[01;37m\\\]\\t\]\[\\\[\\e\[01;32m\\\]\\u\\\[\\e\[37m\\\]@\\h \\\[\\e\[36m\\\]\\w\\\[\\e\[m\\\]\]\\\\$ &amp;#34; &#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;通过.vimrc美化vim&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;syntax on &amp;#34; 设置语法高亮 &#xA;set nu &amp;#34; 设置行数显示 &#xA;set tabstop=4 &amp;#34; 设置tab缩进长度为4空格 &#xA;set autoindent &amp;#34; 设置自动缩进，适用所有类型文件 &#xA;set cindent &amp;#34; 针对C语言的自动缩进功能，在C语言的编程环境中，比autoindent更加精准 &#xA;set list lcs=tab:\\|\\ &amp;#34; 设置tab提示符号为 &amp;#34;|&amp;#34;，注意最后一个反斜杠后面要留有空格 &#xA;set cc=0 &amp;#34; 设置高亮的列，这里设置为0，代表关闭 set cursorline &amp;#34; 突出显示当前行 &#xA;set showmode &#xA;set showcmd &#xA;set mouse =a &#xA;set t\_Co=256 &#xA;set relativenumber &#xA;set noerrorbells &#xA;set vb t\_vb=&#xA;set encoding=utf-8 set termencoding=utf-8&#xA;&#xA;set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr set fileencoding=utf-8 &#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>极乐迪斯科（Disco Elysium）游玩体验</title>
+      <link>http://localhost:1313/blog/example/%E6%9E%81%E4%B9%90%E8%BF%AA%E6%96%AF%E7%A7%91disco-elysium%E6%B8%B8%E7%8E%A9%E4%BD%93%E9%AA%8C/</link>
+      <pubDate>Sat, 10 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/%E6%9E%81%E4%B9%90%E8%BF%AA%E6%96%AF%E7%A7%91disco-elysium%E6%B8%B8%E7%8E%A9%E4%BD%93%E9%AA%8C/</guid>
+      <description>&lt;h2 id=&#34;极乐迪斯科disco-elysium游玩体验&#34;&gt;&#xA;  极乐迪斯科（Disco Elysium）游玩体验&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e6%9e%81%e4%b9%90%e8%bf%aa%e6%96%af%e7%a7%91disco-elysium%e6%b8%b8%e7%8e%a9%e4%bd%93%e9%aa%8c&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;写于2024-08-10 游戏时长18.9h&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;很诚挚的定论她，这是我开始玩单机以来，第一部不会感到倦怠的作品。每一次剧情推动，都认真的考虑剧情的走向，每一个角色都是下了大功夫的塑造关系，性格，寓意。伏笔从始至终，不是工业化流水线，甚至旁白都是大量的配音，沉浸到思维的碰撞中。不得不过，要翻译这样一部作品是很困难的，各类思维的表达方式不同，文本前后联系。对这样的一部作品我觉得是有必要探讨他的寓意的。&lt;/p&gt;&#xA;&lt;h3 id=&#34;diving-into-disco&#34;&gt;&#xA;  diving into Disco&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#diving-into-disco&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;你可以随意向市民们提问，人们总是对拥有权力的人保持宽容，特别是你警官。 &amp;gt; &amp;gt; 非原话&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Disco是什么？一切从Disco，酒精，毒品，性爱开始，你分配的每一个技能点数，都与政治立场无关，只决定你和人的交流进展。正如马哲说，人的存在就是人的社会关系。我们所熟知的领袖，也只不过在其中某些点数过于常人。当然，玩家无所不能，一次又一次的骰子掷下，我们开始逐渐进入这个城市。这个故事发生的城市很小，不过麻雀虽小，却包含一个港口，公路要塞，小岛，教堂，渔村。&lt;/p&gt;&#xA;&lt;p&gt;一个灵魂从一个腐朽的身体里诞生了，你，失忆了。这个城市看起来很不友好，康米主义分子，极端种族主义，极端自由主义，中立派相互对立。而这样一片土地曾经发生过什么呢，君主专制，大革命，大革命的失败，无政府，自由主义，无数制度都存在过这篇土地，都留下过自己的痕迹。&lt;/p&gt;&#xA;&lt;p&gt;竹节虫是什么，逃兵是什么，为什么逃兵看不到竹节虫，为什么又要嫉妒那个吊人和女人，为什么他要偷窥女人，为什么他要威胁女人，为什么坤诺表现得如何疯狂，为什么工会如此排外，为什么不同的人格都出现在同一具腐朽的身体里，警察是什么，我是谁?&lt;/p&gt;&#xA;&lt;p&gt;当资本主义和人民分手，本来曾经康米内在化的我将如何面对这个矛盾重重的世界？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>明末·饿殍千里行游戏体验</title>
+      <link>http://localhost:1313/blog/example/%E6%98%8E%E6%9C%AB%E9%A5%BF%E6%AE%8D%E5%8D%83%E9%87%8C%E8%A1%8C%E6%B8%B8%E6%88%8F%E4%BD%93%E9%AA%8C/</link>
+      <pubDate>Wed, 07 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/%E6%98%8E%E6%9C%AB%E9%A5%BF%E6%AE%8D%E5%8D%83%E9%87%8C%E8%A1%8C%E6%B8%B8%E6%88%8F%E4%BD%93%E9%AA%8C/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;2024-08-07 &amp;gt; 啊哈哈，最近高强度游戏，游戏体验出的太快了，我写体验，就不能只体验，会随着时间写我的一些吐槽把&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;看到那个“安”字，不知道为什么想起了盗官记。就想写一个盗官记改编，希望不是废案吧。零创产量挺高的啊，最近出这么多游戏，暗黑桃花源其实不错，画风也不错，有Raging loop的味道。那个二分之一画风差距巨大，我其实更喜欢黑色阵营，不过游戏太难玩&amp;hellip;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;阿巴阿巴阿巴~&lt;/p&gt;&#xA;&lt;p&gt;挺平淡的展开，作画有好有坏，经费都花在了该花的地方是吧（笑~）。&lt;/p&gt;&#xA;&lt;p&gt;怎么和带小孩一样&amp;hellip;Hanser配音还是很出戏啊，明显在藏刀啊，舌头挺正常一个人。开始的令牌感觉有伏笔。故事太短，总感觉人物刻画不够。&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;卖给身边不愁吃喝的亲友&amp;rdquo;。我要是有亲友还至于干这行吗（笑。&lt;/p&gt;&#xA;&lt;p&gt;穗穗这家世够惨的，其实选明朝还挺合适的，毕竟王爷多。穗穗这后面的剧情&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;其实你单单要写，完全可以把两件事拆开，对穗穗的感情混杂着对王侯将相的愤慨，显得主次不清，没有感觉悲壮。倒是李自成的形象挺帅的，又来一个想当皇帝的。&lt;/p&gt;&#xA;&lt;p&gt;总之全篇我最有印象的还是穗穗有多惨，而这不过是一个王朝末期的剪影而已。&lt;/p&gt;&#xA;&lt;p&gt;最后，仅以此篇献给所有动手实现”不再有饿殍“的人&lt;/p&gt;&#xA;&lt;p&gt;剧情一般，打分的话，3.1/5&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Steins;Gate 游戏体验</title>
+      <link>http://localhost:1313/blog/example/steins-gate-%E6%B8%B8%E6%88%8F%E4%BD%93%E9%AA%8C/</link>
+      <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/steins-gate-%E6%B8%B8%E6%88%8F%E4%BD%93%E9%AA%8C/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;2024-08-06&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;确实是一部很慢热的游戏，剧情前一半多都是日常，直到SERN破门而入我还以为是凶真的幻想，自此剧情开始突然黑残深，我当然想要挽回铃羽啊，可是世界的惯性决定，胸针如果不想牺牲什么。是达不到目的的，从男主收到那条短信开始，命运已经决定了，你不是在拯救，你是去换，到最后还剩下了什么呢？记忆太多会改变一个人的，当一个人不把记忆当回事的时候，就容易崩坏了。 桶子真男人，不愧有个这么好的女儿。红莉栖确实是助手，和胸针一唱一和，主打一个反差萌。铃羽最后的一年太让人心疼了。 PS，布朗管女儿的那张原画是真的吓人&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;菲莉丝结局，放弃了时间机器，SERN也没上门。 所以一开始使用时间机器直接或者间接的导致了后面的IBN消失，胸针只不过现在走着一条修正时间线的路，既然如此，直接回到最初，拒绝时间机器的诱惑。 直接让他爸以IBN作为赎金给神社，岂不是美哉！（~~~我是天才~~~） 怪不得菲莉丝之前一直赢，原来是读心术&amp;hellip;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;秀吉啊，秀吉 唉，老是搞这种约会，离别的时候怎么放得下嘛，你看摄影小子就不专业，男的不是更好？！微小的调整是修改不了时间线的，不要有这样的想法。 游戏完全参照了设定，其实是线性的叙事结构，所有的结局都是分支结局，虽然并不完美。 还是没法接受&amp;hellip;人命换性别？你已经牺牲了两个人的希望了，为什么半路放弃了。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;谁都可以牺牲，一切为了真由里 2. 回到最初，从头开始！已经赎完了所有的罪，我们选择最后的结局。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;其实在理论方面有所不完善，但是只要用时间是完全线性就可以解释，如果是我来写，原来的β时间线因为助手死了，所以男主跳跃到了其他时间线，而本来的β时间线停滞了，这时候，胸针是不知道死没死的，而胸针穿越回来后的β时间线，因为此时的胸针记忆和之前不同其实不是原本的时间线，然后经过十年的计算和研究，找到了肉身穿越的方法，但是由于主角团都不能和现在的自己碰面，所以只能由桶子的女儿来传信和救出重伤的胸针，不然胸针如果死了，蝴蝶效应又会产生，胸针要做到少改变状态的同时，还能通过这个时间黑盒得到自己想要的结果。所以拯救助手的是记忆，从一开始就已经确定了的记忆。&lt;/p&gt;&#xA;&lt;p&gt;理论不是很严谨，但是内容确实很催泪，一次又一次的放弃，只为了最后能救回助手。顺便一提，出生父亲。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>记录一次服务器跑大模型经历</title>
+      <link>http://localhost:1313/blog/example/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B7%91%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%BB%8F%E5%8E%86/</link>
+      <pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B7%91%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%BB%8F%E5%8E%86/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;由于网络问题，速度慢或者无法直连hugging-face docker hub pipy&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;设置系统代理&#34;&gt;&#xA;  设置系统代理&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e8%ae%be%e7%bd%ae%e7%b3%bb%e7%bb%9f%e4%bb%a3%e7%90%86&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# set proxy config via profie.d - should apply for all users &#xA;export http_proxy=&amp;#34;http://127.0.0.1:10000/&amp;#34; &#xA;export https_proxy=&amp;#34;http://127.0.0.1:10000/&amp;#34; localhost&amp;#34;&#xA;&#xA;# 注意，jupyter是不会直接调用你的bash设置的，所以你需要在cell先设置一下系统代理，这样jupyter笔记本就会调用你的代理了&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;pipy-使用国内镜像我用的清华镜像也可以用其他的&#34;&gt;&#xA;  Pipy 使用国内镜像，我用的清华镜像，也可以用其他的&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#pipy-%e4%bd%bf%e7%94%a8%e5%9b%bd%e5%86%85%e9%95%9c%e5%83%8f%e6%88%91%e7%94%a8%e7%9a%84%e6%b8%85%e5%8d%8e%e9%95%9c%e5%83%8f%e4%b9%9f%e5%8f%af%e4%bb%a5%e7%94%a8%e5%85%b6%e4%bb%96%e7%9a%84&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# pipy 如果你配置了代理，就可以不用设置这个源了&#xA;pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;docker-主要是连接docker-hub-比较吃力-可以选1panel的镜像&#34;&gt;&#xA;  Docker 主要是连接docker hub 比较吃力 可以选1panel的镜像&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#docker-%e4%b8%bb%e8%a6%81%e6%98%af%e8%bf%9e%e6%8e%a5docker-hub-%e6%af%94%e8%be%83%e5%90%83%e5%8a%9b-%e5%8f%af%e4%bb%a5%e9%80%891panel%e7%9a%84%e9%95%9c%e5%83%8f&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo mkdir -p /etc/docker sudo tee /etc/docker/daemon.json &amp;lt;&amp;lt;-&amp;#39;EOF&amp;#39; { &amp;#34;registry-mirrors&amp;#34;: \[ &amp;#34;https://dockerproxy.com&amp;#34;, &amp;#34;https://docker.mirrors.ustc.edu.cn&amp;#34;, &amp;#34;https://docker.nju.edu.cn&amp;#34;, docker.1panel.live \] } EOF sudo systemctl daemon-reload sudo systemctl restart docker &#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;深度学习环境配置-这里有两种方案--方案一-只有pytorchjupyter--refer---httpshubdockercomrtverouspytorch-notebook&#34;&gt;&#xA;  深度学习环境配置 这里有两种方案 #### 方案一-只有pytorch+jupyter &amp;gt; refer -&amp;gt; &lt;a href=&#34;https://hub.docker.com/r/tverous/pytorch-notebook&#34;&gt;https://hub.docker.com/r/tverous/pytorch-notebook&lt;/a&gt;&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e6%b7%b1%e5%ba%a6%e5%ad%a6%e4%b9%a0%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%ae-%e8%bf%99%e9%87%8c%e6%9c%89%e4%b8%a4%e7%a7%8d%e6%96%b9%e6%a1%88--%e6%96%b9%e6%a1%88%e4%b8%80-%e5%8f%aa%e6%9c%89pytorchjupyter--refer---httpshubdockercomrtverouspytorch-notebook&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;这里面是没有nvcc的需要在以下网站里安装 &amp;gt; refer -&amp;gt; &lt;a href=&#34;https://developer.nvidia.com/cuda-downloads&#34;&gt;https://developer.nvidia.com/cuda-downloads&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>有关White album2一点点想法</title>
+      <link>http://localhost:1313/blog/example/%E6%9C%89%E5%85%B3white-album2%E4%B8%80%E7%82%B9%E7%82%B9%E6%83%B3%E6%B3%95/</link>
+      <pubDate>Sun, 28 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/%E6%9C%89%E5%85%B3white-album2%E4%B8%80%E7%82%B9%E7%82%B9%E6%83%B3%E6%B3%95/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;和纱，你说我是不是真的坏掉了呢？&#xA;小木曾雪菜&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;关于白色相簿2&#34;&gt;&#xA;  关于白色相簿2&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e5%85%b3%e4%ba%8e%e7%99%bd%e8%89%b2%e7%9b%b8%e7%b0%bf2&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;作为游玩的比较晚的玩家，其实一起很好奇为什么这么多人是所谓的白学家，怎样一个作品才能在玩家群体引起这样的风波，在几十个小时的心理折磨后，终于写下了这篇观后感，我会尝试用一点诙谐的感觉写出我记忆里的观后感。 白2总共大致分为三部，没有选择的少年时期，遇得到的人都是上天已经注定好的；因为年少时犯的错，没有做到的事导致的青年；往事开始回首的晚年，是坚持本心还是走向崩坏。 故事的起点就是我人生遗憾的起点，我年轻的时候啊，也有一个闲暇时飘出钢琴声的音乐教室呢，放学那天我和朋友说，嘿，你知道吗，那个妹子，我一定要拿下。友人A说，你还是先把对线拿下，别玩你那b卡牌了，卡牌没出路的。我反驳，我卡牌猛地一，不信solo?友人B补充，走走，这周末我带你们乱杀。我一直很自信自己的卡牌大师，裁决第一AD打野卡牌，这么多前缀是我自信的本钱。&lt;/p&gt;&#xA;&lt;h3 id=&#34;关于冬马和纱&#34;&gt;&#xA;  关于冬马和纱&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e5%85%b3%e4%ba%8e%e5%86%ac%e9%a9%ac%e5%92%8c%e7%ba%b1&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;一个记忆里高冷的女孩子，哪怕你的时光飞逝，她总是驻足在那样一间音乐室里，音乐室只不过一个黑衣女孩和一架钢琴而已，而已。换做后来的我，还愿意去打开这样的一扇门吗，还愿意承担这样的独特的记忆吗？ 这样一个女孩子怎么能喜欢上我呢？首先你得有自己的闪耀点吧，当天晚上我挑灯夜战，终于研究出了一套打野的秘籍，怂。朋友们看我总是不离开野区恨得牙痒痒，我告诉他们，等我刷出来，就能翻盘，你们先顶住，我继续去折腾我的吞噬者打野刀。或许我有一点点天赋，只不过稍微努力，就拿到了班上的第二名，成绩就是年轻的我的装逼本钱。我自感觉自己有了追她的资本，就开始怂恿我的朋友们帮我追她。 只不过感情这个事情，说来简单，谁也不知道是怎么来的。只不过我的故事就此而结束了，没有下一节，年少的轻狂最终只是遗憾，看似若即若离的关系，同样伴随着升学，两个人走向了背向。 我其实不知道那时的我是怎样的一个位置，是不是在她心里也有一席之地，哪怕现在的我也会回答不聊这个问题。 她是我的人生之光，普罗米修斯偷盗来的宙斯之火，冬-马-和-纱，这样随意的几个词的简单组合，却是像是伴随人类之火的潘多拉魔盒，美丽而致命，也让我的心遭受日晒雨淋。 就像选择了和纱一样，我享受了内心的满足，却只能接受这个内心容器的拷打，哪怕这时候的我再幸福，终究终究灾难在这片大地留下的是千沟万壑。&lt;/p&gt;&#xA;&lt;h3 id=&#34;关于小木曾雪菜&#34;&gt;&#xA;  关于小木曾雪菜&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e5%85%b3%e4%ba%8e%e5%b0%8f%e6%9c%a8%e6%9b%be%e9%9b%aa%e8%8f%9c&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;IC篇幅其实已经把雪菜勾绘出一个大概了，闪光的外表下其实也是有着自己小孩子的一面，她看似和谁都很好，但是却是和谁都疏远，也只有一个心细的男生能找到她内心的弱点。但是那个下雪的夜晚彻底让三个人的命运走向了渐行渐远的方向。 我的内心是守序善良的，所以我选择救赎雪菜，也是救赎我因为自己的错误而让她失去的三年，我已经伤害过她一次了，又怎么能伤害她。这不仅是一种弥补，也是一种救赎，放下了曾经的自己，认识到自己的幼稚。这三年我常常会想，我是不是错了了什么，当时如果我坚持是不是结构又会不一样呢，是不是我还有哪里做的不好。 爱是一种陪伴，或许可以解释为一种习惯，当我习惯了一个人，她总是能接受我，哪怕我选择了背叛，哪怕我选择了说谎，哪怕我在两个人之中痛苦而快乐。一个你永远可以回到的家，这或许是我，这样一个没有家庭的我真正想要的。 那么多的世界线，她总是陪在我身边，没有一次例外，她甚至愿意分享爱，三个人的爱。&lt;/p&gt;&#xA;&lt;h3 id=&#34;关于和泉千晶&#34;&gt;&#xA;  关于和泉千晶&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e5%85%b3%e4%ba%8e%e5%92%8c%e6%b3%89%e5%8d%83%e6%99%b6&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;这是最后一个角色了，她的出现很突兀，结束了我痛苦的游戏时长，在她身边，我可以不去在乎是不是伤害到雪菜，在他身边，我可以忘掉和纱，只有在他身边，我才可以接受我自己的软弱，正视我曾经犯下的错误。 我很轻松，她的生命需要我，我也需要她，直到某天，她消失了。 雪菜是多么好啊，她总是能接受如何的我，即使我不断地去伤害她，即使我在无数选择中错过了她。和纱是多么好啊，年少时的爱是多么难得，年少时的遗憾又是多么意难平。 很可惜，我的人生没有这样的一个人来救赎我，是我不配得到这样的爱意，这样参杂着利用和真挚的爱意。千晶的爱纯粹吗？我想不是的，那又怎么样呢，爱又何必纯粹，人也太复杂了。&lt;/p&gt;&#xA;&lt;h2 id=&#34;结语&#34;&gt;&#xA;  结语&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e7%bb%93%e8%af%ad&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;就快了，就快了啊&#xA;和泉千晶&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;我喜欢雪菜，我喜欢和纱，两个人我都只能选择伤害。人生其实少年就死了，只不过晚年才开始赎罪。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>有关魔法使之夜</title>
+      <link>http://localhost:1313/blog/example/%E6%9C%89%E5%85%B3%E9%AD%94%E6%B3%95%E4%BD%BF%E4%B9%8B%E5%A4%9C/</link>
+      <pubDate>Sun, 28 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/%E6%9C%89%E5%85%B3%E9%AD%94%E6%B3%95%E4%BD%BF%E4%B9%8B%E5%A4%9C/</guid>
+      <description>&lt;h2 id=&#34;魔法使之夜&#34;&gt;&#xA;  魔法使之夜&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e9%ad%94%e6%b3%95%e4%bd%bf%e4%b9%8b%e5%a4%9c&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;某种程度上是我的型月的入门作(空之境界很早之前看的，但是没看懂)，你要说感动，更多的是产生了不少好奇对这样一个故事的背景。 对两位女主角的描述，我更愿意称其为魔女之夜(笑 其实作品主要还是战斗，真正做到了文字描述战斗的极限，配合动图。 红发青子点燃了我的战斗之魂，不愧是第五魔法使。 所以，魔法使背后的世界，是怎么样的呢？ 逐渐走入Fate的大坑了呢&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>关于摄影有感而发</title>
+      <link>http://localhost:1313/blog/example/%E6%91%84%E5%BD%B1%E6%97%A5%E8%AE%B0/</link>
+      <pubDate>Wed, 15 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/%E6%91%84%E5%BD%B1%E6%97%A5%E8%AE%B0/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;松下G85搭配松下1445镜头&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;首先，为什么选松下，松下是我老朋友了，作为家电厂，用过他家的台灯。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;PS:我的第一台相机其实是奥巴的，不过是一台数码相机，那时候拍照没有讲究想到什么拍什么，不需要构图，拍照只是为了留恋，而不是为了装逼。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;第一次买相机其实也不太懂，搜索了一些资料就开始上手了，买到了才开始学习，比如机械电子快门，防抖，曝光补偿，iso，超采，以上都很有意思，改善了之前对单反的固有想法。&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Ps的Adobe camera raw 可以通过算法实现超采，和去噪点，是对M43传感器不大的一些弥补，但是我如果只处理一张图片，去噪点功能其实对观感而言比超采更好。 也可以通过DXO Photolab实现，但是DXO个人感觉没有ACR效果好。&lt;/li&gt;&#xA;&lt;li&gt;松下的G85可以实现DUAL2 防抖，但是是需要一定的硬件支持的，也就是镜头支持。 &lt;a href=&#34;https://forum.xitek.com/thread-1760716-1-1.html&#34;&gt;https://forum.xitek.com/thread-1760716-1-1.html&lt;/a&gt;&lt;br&gt;&#xA;&lt;a href=&#34;https://av.jpn.support.panasonic.com/support/global/cs/dsc/download/index.html&#34;&gt;https://av.jpn.support.panasonic.com/support/global/cs/dsc/download/index.html&lt;/a&gt; 很遗憾，我的1445只能实现镜头防抖，不能协同。不过通过稳定器开启之后对手持改善很大。&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;我的客观需要其实不高，但是人嘛，总是在有限的预算里有无限的追求。开始越来越尝试记录自己的生活，这也是一种进步吧，或许只有对生活充满期望，才可以应对我要到哪里去这个问题？&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My First Day</title>
+      <link>http://localhost:1313/blog/example/my-first-day/</link>
+      <pubDate>Thu, 02 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/my-first-day/</guid>
+      <description>&lt;p&gt;Hello world !!!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>GCore HK Basic vm</title>
+      <link>http://localhost:1313/blog/example/gcore-hk-basic-vm/</link>
+      <pubDate>Sat, 23 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/gcore-hk-basic-vm/</guid>
+      <description>&lt;p&gt;Gcore作为老牌互联网提供商，早期用过他家的DNS和CDN，体验还是很稳定的，虽然现在我是一个Cloudflare的忠实免费玩家。 GCore的vps分为两种，Core和Edge，Core的物理资源更充沛，Edge更便宜 当然我们只是需要一台简单的服务器做Vlog和脚本服务器使用，所以还是使用Edge,Edge更便宜 Gcore宣称出口流量免费，但是实际上BasicVM的入口也是免费的。虽然Basic VM只有100Mbps的速度，但是实测短时间超过是没有问题的，不过大流量下，我估计CPU和内存都顶不住&amp;hellip;当然CDN还是上了Cloudflare家的免费计划，CloudFlare是真的中小开发者的最佳选择。&lt;/p&gt;&#xA;&lt;p&gt;Done&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gredge</title>
+      <link>http://localhost:1313/blog/example/gredge/</link>
+      <pubDate>Thu, 21 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/gredge/</guid>
+      <description>&lt;p&gt;第一次体验了克系的游戏，虽然游戏剧情开始有点懵，但是之后跟着攻略走，打通了两个结局，还是看懂了一点。&lt;/p&gt;&#xA;&lt;p&gt;男主从海中捡到了书，但是也吸引出了海中的神明。妻子死后，男主后悔了，想要收回之前自己遗失的物品，通过书的力量献祭，复活自己的妻子，但此时，神明终于失去了最后的枷锁，灭世。&lt;/p&gt;&#xA;&lt;p&gt;若是，跟着守塔人的指引，向大海归还书，像多年前那样，大海只会收回男主的姓名。&lt;/p&gt;&#xA;&lt;p&gt;很简单的游戏，剧情流程也很短，不是很喜欢重复的工作，所以dlc没打，整体剧情开始很隐晦，后面很明朗。算是4.0的克系游戏。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Shadowrocket UDP 设置</title>
+      <link>http://localhost:1313/blog/example/shadowrocket-udp-%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Thu, 21 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/shadowrocket-udp-%E8%AE%BE%E7%BD%AE/</guid>
+      <description>&lt;p&gt;Shadowrocekt很好用，但是网上基本没看到他的文档，大家都把他当作ios代理入门软件，但实际上，Sr也有很多没写出来的特点。&lt;/p&gt;&#xA;&lt;p&gt;以UDP Relay为例，如果关闭UDP转发，不管你是不是UoT，此时UDP都是走的直连，也就是会出现Webrtc泄露之类的问题，开启UDP转发之后，此时Webrtc会出现没有泄露但是也检测不到代理服务器的状态。只有开启UDP转发，并且打开UoT才可以使得Webrtc指向代理服务器。&lt;/p&gt;&#xA;&lt;p&gt;同理，Clash (mihomo)也是有这个特性的，开启udp, UoT 才是完整的UDP配置&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Vim</title>
+      <link>http://localhost:1313/blog/example/vim/</link>
+      <pubDate>Wed, 20 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/vim/</guid>
+      <description>&lt;p&gt;Vim 简单配置&lt;/p&gt;&#xA;&lt;p&gt;sudo vim ~/.vimrc&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;set number   &amp;#34; 显示行号&#xA;set mouse=a  &amp;#34; 启用鼠标&#xA;set ruler    &amp;#34; 显示标尺（显示当前光标位置的行号、列号）&#xA;set cursorline  &amp;#34; 高亮显示当前行&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>世界，您好！</title>
+      <link>http://localhost:1313/blog/example/hello-world/</link>
+      <pubDate>Wed, 20 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/example/hello-world/</guid>
+      <description>&lt;p&gt;欢迎使用 WordPress。这是您的第一篇文章。编辑或删除它，然后开始写作吧！&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Test markdown&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+  </channel>
+</rss>

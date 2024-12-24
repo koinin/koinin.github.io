@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> | yat blog</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">POSTS</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title"></span></h1>
+
+<h2 class="date">2024/11/18</h2>
+</div>
+
+<main>
+<p>[toc]</p>
+<h1 id="llama-31-70b的部署和批量推理离线推理">Llama-3.1-70b的部署和批量推理（离线推理）</h1>
+<p>offline inferencem, or batch inference</p>
+<h3 id="top_p-vs-top_k">top_p vs top_k</h3>
+<blockquote>
+<p><code>top_p</code>是指在生成文本时，选择概率最高的 <code>p</code>个token作为候选集。例如，如果 <code>top_p</code>为0.9，则意味着在生成文本时，选择概率最高的90%的token作为候选集。</p>
+<p><code>top_p</code>的作用是：</p>
+<ul>
+<li>限制生成的文本的多样性：通过选择概率最高的token，<code>top_p</code>可以限制生成的文本的多样性，使得生成的文本更加集中和可预测。</li>
+<li>提高生成的文本的质量：通过选择概率最高的token，<code>top_p</code>可以提高生成的文本的质量，使得生成的文本更加流畅和自然。</li>
+</ul>
+<p><code>top_k</code>是指在生成文本时，选择前 <code>k</code>个概率最高的token作为候选集。例如，如果 <code>top_k</code>为100，则意味着在生成文本时，选择前100个概率最高的token作为候选集。</p>
+<p><code>top_k</code>的作用是：</p>
+<ul>
+<li>提高生成的文本的多样性：通过选择前 <code>k</code>个概率最高的token，<code>top_k</code>可以提高生成的文本的多样性，使得生成的文本更加丰富和多样。</li>
+<li>降低生成的文本的质量：通过选择前 <code>k</code>个概率最高的token，<code>top_k</code>可以降低生成的文本的质量，使得生成的文本更加随机和不确定。</li>
+</ul>
+<p><code>top_p</code>和 <code>top_k</code>是两个相关但不同的参数。<code>top_p</code>限制了生成的文本的多样性，而 <code>top_k</code>提高了生成的文本的多样性。通常情况下，<code>top_p</code>和 <code>top_k</code>会被同时使用，以便在生成的文本的质量和多样性之间找到一个平衡。</p>
+<p>例如，如果你想生成一个高质量的文本，你可以设置 <code>top_p</code>为0.9和 <code>top_k</code>为100。这意味着在生成avour时，选择概率最高的90%的token作为候选集，并从候选集中选择前100个概率最高的token作为生成的文本。</p>
+</blockquote>
+<h2 id="huggingface-model">Huggingface model</h2>
+<pre><code class="language-powershell">huggingface-cli login
+huggingface-cli download -h
+huggingface-cli download meta-llama/Llama-3.1-70B-Instruct
+</code></pre>
+<h2 id="vllm">Vllm</h2>
+<h3 id="cuda和pytorch">CUDA和Pytorch</h3>
+<blockquote>
+<p><a href="https://blog.csdn.net/null_one/article/details/129412159">显卡驱动CUDA 和 pytorch CUDA 之间的区别_cuda版本和torch.cuda一样吗-CSDN博客</a></p>
+</blockquote>
+<p>区别了nvcc nvidia-smi torch.__version__</p>
+<h3 id="conda和pip">conda和pip</h3>
+<blockquote>
+<p><a href="https://www.cnblogs.com/Li-JT/p/14024034.html">conda install和pip install区别 - lmqljt - 博客园</a></p>
+</blockquote>
+<p>pip 包含build conda一般是可执行</p>
+<h2 id="llama-factory">Llama factory</h2>
+<p>webui board</p>
+
+</main>
+
+  <footer>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<script src="//cdn.jsdelivr.net/combine/npm/katex/dist/katex.min.js,npm/katex/dist/contrib/auto-render.min.js,npm/@xiee/utils/js/render-katex.js" defer></script>
+
+<script src="//cdn.jsdelivr.net/npm/@xiee/utils/js/center-img.min.js" defer></script>
+
+  
+  <hr/>
+  © <a href="https://yihui.org">Yihui Xie</a> 2017 &ndash; 2024 | <a href="https://github.com/yihui">Github</a> | <a href="https://twitter.com/xieyihui">Twitter</a>
+  
+  </footer>
+  </body>
+</html>
+

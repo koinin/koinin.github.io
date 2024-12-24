@@ -1,0 +1,51 @@
+baseurl: "https://hiandy24.github.io/"  # please update this to your actual URL
+languageCode: "zh"
+title: "logn"
+theme: "hugo-xmin"
+googleAnalytics: "G-N7FW2QDYM7"
+disqusShortname: ""
+ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
+footnotereturnlinkcontents: "↩"
+
+permalinks:
+  note: "/note/:year/:month/:day/:slug/"
+  post: "/post/:year/:month/:day/:slug/"
+
+menu:
+  main:
+    - name: POSTS
+      url: ""
+      weight: 1
+    - name: About
+      url: "about/"
+      weight: 2
+    - name: Subscribe
+      url: "index.xml"
+
+params:
+  description: "A website built through Hugo and blogdown."
+  footer: "Thanks to &copy; [Yihui Xie](https://yihui.org) 2017 -- {Year} | [Github](https://github.com/yihui) | [Twitter](https://twitter.com/xieyihui)"
+
+markup:
+  highlight:
+    codeFences: false
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+          inline:
+          - - \(
+            - \)
+
+sitemap:
+  changeFreq: "weekly"
+  filename: sitemap.xml
+  priority: 1

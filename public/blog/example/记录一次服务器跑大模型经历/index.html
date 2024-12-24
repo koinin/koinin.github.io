@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+由于网络问题，速度慢或者无法直连hugging-face docker hub pipy
+
+
+  设置系统代理
+  #
+
+# set proxy config via profie.d - should apply for all users 
+export http_proxy=&#34;http://127.0.0.1:10000/&#34; 
+export https_proxy=&#34;http://127.0.0.1:10000/&#34; localhost&#34;
+
+# 注意，jupyter是不会直接调用你的bash设置的，所以你需要在cell先设置一下系统代理，这样jupyter笔记本就会调用你的代理了
+
+  Pipy 使用国内镜像，我用的清华镜像，也可以用其他的
+  #
+
+# pipy 如果你配置了代理，就可以不用设置这个源了
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+
+  Docker 主要是连接docker hub 比较吃力 可以选1panel的镜像
+  #
+
+sudo mkdir -p /etc/docker sudo tee /etc/docker/daemon.json &lt;&lt;-&#39;EOF&#39; { &#34;registry-mirrors&#34;: \[ &#34;https://dockerproxy.com&#34;, &#34;https://docker.mirrors.ustc.edu.cn&#34;, &#34;https://docker.nju.edu.cn&#34;, docker.1panel.live \] } EOF sudo systemctl daemon-reload sudo systemctl restart docker 
+
+  深度学习环境配置 这里有两种方案 #### 方案一-只有pytorch&#43;jupyter &gt; refer -&gt; https://hub.docker.com/r/tverous/pytorch-notebook
+  #
+
+这里面是没有nvcc的需要在以下网站里安装 &gt; refer -&gt; https://developer.nvidia.com/cuda-downloads">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="http://localhost:1313/blog/example/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B7%91%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%BB%8F%E5%8E%86/">
+  <meta property="og:site_name" content="Yat&#39;s blog">
+  <meta property="og:title" content="记录一次服务器跑大模型经历">
+  <meta property="og:description" content="由于网络问题，速度慢或者无法直连hugging-face docker hub pipy
+设置系统代理 # # set proxy config via profie.d - should apply for all users export http_proxy=&#34;http://127.0.0.1:10000/&#34; export https_proxy=&#34;http://127.0.0.1:10000/&#34; localhost&#34; # 注意，jupyter是不会直接调用你的bash设置的，所以你需要在cell先设置一下系统代理，这样jupyter笔记本就会调用你的代理了 Pipy 使用国内镜像，我用的清华镜像，也可以用其他的 # # pipy 如果你配置了代理，就可以不用设置这个源了 pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package Docker 主要是连接docker hub 比较吃力 可以选1panel的镜像 # sudo mkdir -p /etc/docker sudo tee /etc/docker/daemon.json &lt;&lt;-&#39;EOF&#39; { &#34;registry-mirrors&#34;: \[ &#34;https://dockerproxy.com&#34;, &#34;https://docker.mirrors.ustc.edu.cn&#34;, &#34;https://docker.nju.edu.cn&#34;, docker.1panel.live \] } EOF sudo systemctl daemon-reload sudo systemctl restart docker 深度学习环境配置 这里有两种方案 #### 方案一-只有pytorch&#43;jupyter &gt; refer -&gt; https://hub.docker.com/r/tverous/pytorch-notebook # 这里面是没有nvcc的需要在以下网站里安装 &gt; refer -&gt; https://developer.nvidia.com/cuda-downloads">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2024-07-31T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-07-31T00:00:00+00:00">
+<title>记录一次服务器跑大模型经历 | Yat&#39;s blog</title>
+<link rel="icon" href="/favicon.png" >
+<link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="http://localhost:1313/blog/example/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%B7%91%E5%A4%A7%E6%A8%A1%E5%9E%8B%E7%BB%8F%E5%8E%86/">
+<link rel="stylesheet" href="/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css" integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin="anonymous">
+  <script defer src="/fuse.min.js"></script>
+  <script defer src="/en.search.min.ef3b737341abdd3e2d43c4df117b72cea4a5f5eec53cb17f565d6ab34f8ff361.js" integrity="sha256-7ztzc0Gr3T4tQ8TfEXtyzqSl9e7FPLF/Vl1qs0&#43;P82E=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/"><span>Yat&#39;s blog</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <h3>记录一次服务器跑大模型经历</h3>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#设置系统代理">设置系统代理</a></li>
+        <li><a href="#pipy-使用国内镜像我用的清华镜像也可以用其他的">Pipy 使用国内镜像，我用的清华镜像，也可以用其他的</a></li>
+        <li><a href="#docker-主要是连接docker-hub-比较吃力-可以选1panel的镜像">Docker 主要是连接docker hub 比较吃力 可以选1panel的镜像</a></li>
+        <li><a href="#深度学习环境配置-这里有两种方案--方案一-只有pytorchjupyter--refer---httpshubdockercomrtverouspytorch-notebook">深度学习环境配置 这里有两种方案 #### 方案一-只有pytorch+jupyter &gt; refer -&gt; <a href="https://hub.docker.com/r/tverous/pytorch-notebook">https://hub.docker.com/r/tverous/pytorch-notebook</a></a></li>
+        <li><a href="#模型下载">模型下载</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown book-article"><blockquote>
+<p>由于网络问题，速度慢或者无法直连hugging-face docker hub pipy</p>
+</blockquote>
+<h3 id="设置系统代理">
+  设置系统代理
+  <a class="anchor" href="#%e8%ae%be%e7%bd%ae%e7%b3%bb%e7%bb%9f%e4%bb%a3%e7%90%86">#</a>
+</h3>
+<pre tabindex="0"><code># set proxy config via profie.d - should apply for all users 
+export http_proxy=&#34;http://127.0.0.1:10000/&#34; 
+export https_proxy=&#34;http://127.0.0.1:10000/&#34; localhost&#34;
+
+# 注意，jupyter是不会直接调用你的bash设置的，所以你需要在cell先设置一下系统代理，这样jupyter笔记本就会调用你的代理了
+</code></pre><h3 id="pipy-使用国内镜像我用的清华镜像也可以用其他的">
+  Pipy 使用国内镜像，我用的清华镜像，也可以用其他的
+  <a class="anchor" href="#pipy-%e4%bd%bf%e7%94%a8%e5%9b%bd%e5%86%85%e9%95%9c%e5%83%8f%e6%88%91%e7%94%a8%e7%9a%84%e6%b8%85%e5%8d%8e%e9%95%9c%e5%83%8f%e4%b9%9f%e5%8f%af%e4%bb%a5%e7%94%a8%e5%85%b6%e4%bb%96%e7%9a%84">#</a>
+</h3>
+<pre tabindex="0"><code># pipy 如果你配置了代理，就可以不用设置这个源了
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+</code></pre><h3 id="docker-主要是连接docker-hub-比较吃力-可以选1panel的镜像">
+  Docker 主要是连接docker hub 比较吃力 可以选1panel的镜像
+  <a class="anchor" href="#docker-%e4%b8%bb%e8%a6%81%e6%98%af%e8%bf%9e%e6%8e%a5docker-hub-%e6%af%94%e8%be%83%e5%90%83%e5%8a%9b-%e5%8f%af%e4%bb%a5%e9%80%891panel%e7%9a%84%e9%95%9c%e5%83%8f">#</a>
+</h3>
+<pre tabindex="0"><code>sudo mkdir -p /etc/docker sudo tee /etc/docker/daemon.json &lt;&lt;-&#39;EOF&#39; { &#34;registry-mirrors&#34;: \[ &#34;https://dockerproxy.com&#34;, &#34;https://docker.mirrors.ustc.edu.cn&#34;, &#34;https://docker.nju.edu.cn&#34;, docker.1panel.live \] } EOF sudo systemctl daemon-reload sudo systemctl restart docker 
+</code></pre><h3 id="深度学习环境配置-这里有两种方案--方案一-只有pytorchjupyter--refer---httpshubdockercomrtverouspytorch-notebook">
+  深度学习环境配置 这里有两种方案 #### 方案一-只有pytorch+jupyter &gt; refer -&gt; <a href="https://hub.docker.com/r/tverous/pytorch-notebook">https://hub.docker.com/r/tverous/pytorch-notebook</a>
+  <a class="anchor" href="#%e6%b7%b1%e5%ba%a6%e5%ad%a6%e4%b9%a0%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%ae-%e8%bf%99%e9%87%8c%e6%9c%89%e4%b8%a4%e7%a7%8d%e6%96%b9%e6%a1%88--%e6%96%b9%e6%a1%88%e4%b8%80-%e5%8f%aa%e6%9c%89pytorchjupyter--refer---httpshubdockercomrtverouspytorch-notebook">#</a>
+</h3>
+<p>这里面是没有nvcc的需要在以下网站里安装 &gt; refer -&gt; <a href="https://developer.nvidia.com/cuda-downloads">https://developer.nvidia.com/cuda-downloads</a></p>
+<pre tabindex="0"><code>docker run --rm -it \\ --gpus all \\ -p 8888:8888 \\ -e JUPYTER\_TOKEN=passwd \\ -v /local\_vol:/docker\_vol \\ tverous/pytorch-notebook:latest
+</code></pre><p>也可以把jupyter 跑在后台，然后每次通过服务器的http://ip:8888访问</p>
+<h4 id="方案二-可选pytorchtensorflow">
+  方案二-可选pytorch+tensorflow
+  <a class="anchor" href="#%e6%96%b9%e6%a1%88%e4%ba%8c-%e5%8f%af%e9%80%89pytorchtensorflow">#</a>
+</h4>
+<h3 id="模型下载">
+  模型下载
+  <a class="anchor" href="#%e6%a8%a1%e5%9e%8b%e4%b8%8b%e8%bd%bd">#</a>
+</h3>
+<h4 id="设置huggingface-凭证">
+  设置huggingface 凭证
+  <a class="anchor" href="#%e8%ae%be%e7%bd%aehuggingface-%e5%87%ad%e8%af%81">#</a>
+</h4>
+<p>token hf_token &gt; 参考https://www.cnblogs.com/ghj1976/p/18336819/hugging-face-access-tokens-si-zhong-yong-fa</p>
+<pre tabindex="0"><code>from transformers import AutoProcessor, PaliGemmaForConditionalGeneration access\_token=&#34;您的Hugging Face的Access Token，一般hf\_开头&#34; model\_id = &#34;google/paligemma-3b-pt-224&#34; processor\_id = &#34;google/paligemma-3b-pt-224&#34; model = PaliGemmaForConditionalGeneration.from\_pretrained(model\_id,token=access\_token) processor = AutoProcessor.from\_pretrained(processor\_id,token=access\_token) 
+</code></pre><p>同样两种方案</p>
+<h4 id="方案一-hugging-face镜像--refer---httpshf-mirrorcom">
+  方案一-hugging-face镜像 &gt; refer -&gt; <a href="https://hf-mirror.com/">https://hf-mirror.com/</a>
+  <a class="anchor" href="#%e6%96%b9%e6%a1%88%e4%b8%80-hugging-face%e9%95%9c%e5%83%8f--refer---httpshf-mirrorcom">#</a>
+</h4>
+<h4 id="方案二-cloudflare-worker-自建反向代理--refer---httpswwwzouhtcom3740html">
+  方案二-cloudflare worker 自建反向代理 &gt; refer -&gt; <a href="https://www.zouht.com/3740.html">https://www.zouht.com/3740.html</a>
+  <a class="anchor" href="#%e6%96%b9%e6%a1%88%e4%ba%8c-cloudflare-worker-%e8%87%aa%e5%bb%ba%e5%8f%8d%e5%90%91%e4%bb%a3%e7%90%86--refer---httpswwwzouhtcom3740html">#</a>
+</h4>
+<p>然后每次使用</p>
+<pre tabindex="0"><code>wget https://yourdomain.com/https://blockdomain.com 
+</code></pre><p>Enjoy your learning !</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#设置系统代理">设置系统代理</a></li>
+        <li><a href="#pipy-使用国内镜像我用的清华镜像也可以用其他的">Pipy 使用国内镜像，我用的清华镜像，也可以用其他的</a></li>
+        <li><a href="#docker-主要是连接docker-hub-比较吃力-可以选1panel的镜像">Docker 主要是连接docker hub 比较吃力 可以选1panel的镜像</a></li>
+        <li><a href="#深度学习环境配置-这里有两种方案--方案一-只有pytorchjupyter--refer---httpshubdockercomrtverouspytorch-notebook">深度学习环境配置 这里有两种方案 #### 方案一-只有pytorch+jupyter &gt; refer -&gt; <a href="https://hub.docker.com/r/tverous/pytorch-notebook">https://hub.docker.com/r/tverous/pytorch-notebook</a></a></li>
+        <li><a href="#模型下载">模型下载</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

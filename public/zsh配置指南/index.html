@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>记录一次zsh配置流程 | yat blog</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">记录一次zsh配置流程</span></h1>
+
+<h2 class="date">2024/11/03</h2>
+</div>
+
+<main>
+<blockquote>
+<p>记录一次zsh配置流程（zsh + oh my zsh）</p>
+</blockquote>
+<ol>
+<li>DD系统</li>
+</ol>
+<blockquote>
+<p><a href="https://github.com/bin456789/reinstall">https://github.com/bin456789/reinstall</a></p>
+</blockquote>
+<ol start="2">
+<li>安装zsh</li>
+</ol>
+<pre><code>apt install zsh -y
+chsh -s /bin/zsh
+# reboot
+
+</code></pre>
+<ol start="3">
+<li>安装 OMZ</li>
+</ol>
+<pre><code>sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;
+
+# 配置文件
+~/.zshrc
+
+# 插件
+~/.oh-my-zsh/custom/plugins
+</code></pre>
+
+</main>
+
+  <footer>
+  
+  
+  <hr/>
+  © <a href="https://yihui.org">Yihui Xie</a> 2017 &ndash; 2024 | <a href="https://github.com/yihui">Github</a> | <a href="https://twitter.com/xieyihui">Twitter</a>
+  
+  </footer>
+  </body>
+</html>
+
