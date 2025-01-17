@@ -46,6 +46,6 @@ markup:
             - \)
 
 sitemap:
-  changeFreq: "weekly"
-  filename: index.xml
-  priority: 1
+  changeFreq: "always"
+  filename: sitemap.xml
+  priority: -1
