@@ -2,7 +2,7 @@ baseurl: "https://koinin.github.io"  # please update this to your actual URL
 languageCode: "zh"
 title: "logn"
 theme: "hugo-xmin"
-googleAnalytics: "G-N7FW2QDYM7"
+googleAnalytics: ""
 disqusShortname: ""
 ignoreFiles: ["\\.Rmd$", "\\.Rmarkdown$", "_cache$"]
 footnotereturnlinkcontents: "↩"
@@ -44,8 +44,3 @@ markup:
           inline:
           - - \(
             - \)
-
-sitemap:
-  changeFreq: "always"
-  filename: sitemap.xml
-  priority: -1
