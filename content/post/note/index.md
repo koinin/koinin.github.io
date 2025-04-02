@@ -267,7 +267,7 @@ print('Average reconstruction loss on the 10000 test images: {:.4f}'.format(aver
 
 ## Pytorch
 
-解决三个问题：
+建立一个Module只需要解决三个问题：
 
 - Dateset
 - model
