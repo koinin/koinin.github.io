@@ -1,7 +1,8 @@
 +++
-date = ''
+date = "2025-03-02"
 draft = false
 title = 'Note'
+
 +++
 
 [toc]
@@ -267,6 +268,8 @@ print('Average reconstruction loss on the 10000 test images: {:.4f}'.format(aver
 
 ## Pytorch
 
+### Model
+
 建立一个Module只需要解决三个问题：
 
 - Dateset
@@ -380,6 +383,8 @@ with torch.no_grad():
             break
 
 ```
+
+### Tensor
 
 
 
