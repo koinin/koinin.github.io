@@ -32,6 +32,20 @@ r_{mi} = -\left[ \frac{\partial L(y_i, f(x_i))}{\partial f(x_i)} \right]_{f(x) =
 c_{mj} = \arg\min_{c} \sum_{x_i \in R_{mj}} L(y_i, f_{m-1}(x_i) + c)
 $$
 
+这种Boost思想是否能应用到代理模型呢
+
+### XGBOOST
+
+要实现模型复杂度和损失的最小，
+
+$$\omega(f) = \gamma T + \frac{1}{2}\lambda \sum_{j=1}^{T} w_j^2 $$
+
+### LightGBM
+
+和xgboost类似，小样本容易过拟合
+
+现在二者没什么本质性差别，lgbm快一点点
+
 # KAN
 
 > http://arxiv.org/abs/2404.19756
@@ -238,4 +252,6 @@ f（x,t）有已知和未知两种选项，其中$x \sim \mathcal{N}(\mu,\sigma^
 2. 生成待采样数据存入[x1,x2]，这一步需要大量采样
 3. 取上一步采样得到的[x1,x2]，将其加入g(x1, x2, t) 得到关于t的函数，使函数等于0，这时候求解出的t就是样本点，打包数据[x1,x2,t]，这一也需要大量采样数据
 4. 然后问题回到了对此函数的采样，如何采最少的样得到最具有可信度的t
+
+### 带三次实验（boosting思想）
 

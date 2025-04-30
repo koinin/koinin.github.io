@@ -11,6 +11,8 @@ title = 'Docker Cuda'
 export CUDA_VISIBLE_DEVICES=0,1
 CUDA_VISIBLE_DEVICES=0,1 python test.py
 pip install -i https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple some-package
+
+python -c "import torch; print(torch.__version__)"
 ```
 
 # 宿主机cuda
