@@ -1,6 +1,6 @@
 baseurl: "https://koinin.github.io"  # please update this to your actual URL
 languageCode: "zh"
-title: "logn"
+title: "logn 2 - koinin"
 theme: "hugo-xmin"
 googleAnalytics: ""
 disqusShortname: ""
