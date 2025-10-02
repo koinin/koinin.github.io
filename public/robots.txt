@@ -1,3 +1,0 @@
-Sitemap: https://koinin.github.io/sitemap.xml
-User-agent: *
-Disallow: 
