@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PINN | logn</title>
+    <title>PINN | logn 2 - koinin</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     
@@ -17,7 +17,7 @@
       
       <li><a href="/about/">About</a></li>
       
-      <li><a href="/sitemap.xml">Subscribe</a></li>
+      <li><a href="/index.xml">Subscribe</a></li>
       
     </ul>
     <hr/>
@@ -73,6 +73,222 @@ $$<p>其中, $u(t, x)$是一个潜在解，$\mathcal{N}[\cdot, \lambda]$是由$\
 <p>github:<a href="https://github.com/Cao-WenBo/NNfoil">Cao-WenBo/NNfoil：基于物理信息神经网络和网格变换的翼型周围亚音速流动求解器 &mdash; Cao-WenBo/NNfoil: A solver for subsonic flow around airfoils based on physics-informed neural networks and mesh transformation</a></p>
 <h2 id="摘要-1">摘要</h2>
 <p>物理信息神经网络 (PINN) 最近已成为解决偏微分方程 (PDE) 控制的正向和逆向问题的新流行方法。然而，在翼型周围的流动中，流体在前缘附近大大加速，导致局部急剧的过渡，这是 PINN 难以捕获的。因此，PINN 仍然很少用于求解翼型周围的流动。在本研究中，我们将物理信息神经网络与网格变换相结合，使用神经网络来学习均匀计算空间而不是物理空间中的流。网格变换避免网络捕获具有内部边界（墙边界）的局部较尖锐的过渡和学习流。我们成功地解决了无粘流问题，并为任意翼型提供了开源亚音速流求解器。我们的结果表明，该求解器表现出高阶属性，在非常稀疏的网格上比二阶有限体积方法 (FVM) 实现了近一个数量级的误差减少。受限于神经网络的学习能力和优化难度，该求解器的精度不会随着网格细化而显着提高。尽管如此，它在精细网格上实现了与二阶 FVM 相当的精度和效率。最后，我们强调了该求解器在求解参数问题时的显着优势，因为它可以有效地获得连续参数空间中关于攻角的解。</p>
+<h2 id="todo">TODO</h2>
+<ol>
+<li>弄清楚SVR是如何实现不确定性的(高斯过程)</li>
+</ol>
+<p>首先什么是SVR,如何寻找最佳SVR超参数</p>
+<p>计算相似度，高斯核，结合了高斯核的SVR</p>
+<p>高斯过程回归：</p>
+<p><strong>预测均值 $u_*$</strong>：基于核函数的加权插值，反映数据趋势。</p>
+<p><strong>预测方差 $\sigma_*^2$</strong>：量化不确定性，在数据稀疏区域增大。</p>
+<ol start="2">
+<li>PDE，初值，边值，真值实现</li>
+<li>做出一个demo，未必要实现PDE, 可以暂时先实现一个二分类问题</li>
+</ol>
+<ul>
+<li>为什么需要nataf和lhs
+<ol>
+<li>用少量LHS样本（Data）构建初始代理模型。</li>
+<li>通过蒙特卡洛样本（X_mcs）评估代理模型的全局失效概率。</li>
+<li>从候选点（Data_tiankong）中选择关键点进行真实评估，更新代理模型。</li>
+<li>迭代直至收敛，最终用蒙特卡洛样本计算高精度失效概率。</li>
+</ol>
+</li>
+</ul>
+<pre><code class="language-matlab">% 生成蒙特卡洛样本
+for rv_id = 1:dim
+   X_mcs(:,rv_id) = GenerateRV(variable_table{rv_id,1}, variable_table{rv_id,2}, variable_table{rv_id,3}, N_sim);
+end
+
+% 生成候选点
+for i=1:dim
+    Data_tiankong(:,i) = unifrnd(-3,3,N_tianchong,1);
+end
+
+% 生成初始拉丁超立方样本
+Data = 6.*UniformPoint(N0,dim,'Latin')-3;
+
+% Nataf变换
+xi = NatafTransformation(Data, variable_table, -1);
+x_un = NatafTransformation(Data_tiankong, variable_table, -1);
+</code></pre>
+<h2 id="问题设置">问题设置</h2>
+<pre><code class="language-python">class Problem:
+        def __init__(self):
+            self.performance_func = None
+            self.variable_table = None
+
+    def performance_func(x):
+        return np.sin(2.5*x[0]) - (x[0]**2 + 4)*(x[1] - 1)/20 + 2
+    
+    problem = Problem()
+    problem.performance_func = performance_func
+    problem.variable_table = [
+        ('normal', 1.5, 1),
+        ('normal', 2.5, 1)
+    ]
+</code></pre>
+<ol>
+<li>多头神经过程存在严重欠拟合</li>
+</ol>
+<h2 id="kriging">Kriging</h2>
+<pre><code>import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.gaussian_process import GaussianProcessRegressor
+from sklearn.gaussian_process.kernels import RBF, ConstantKernel as C, Matern, WhiteKernel
+
+# 假设您已有x_train, y_train, x_test, y_test数据
+
+# 设置随机种子以确保结果可复现
+np.random.seed(42)
+
+# 绘制训练数据和真实函数
+plt.figure(figsize=(12, 7))
+plt.scatter(x_train, y_train, c='r', s=60, label='Training Data')
+plt.plot(x_test, y_test, 'k-', linewidth=2, label='True Function')
+plt.title('Training Data and True Function', fontsize=16)
+plt.xlabel('x', fontsize=14)
+plt.ylabel('y', fontsize=14)
+plt.legend(fontsize=12)
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()
+
+# 定义不同的核函数以比较性能
+kernels = {
+    'RBF': C(1.0) * RBF(length_scale=1.0) + WhiteKernel(noise_level=0.1),
+    'Matern': C(1.0) * Matern(length_scale=1.0, nu=1.5) + WhiteKernel(noise_level=0.1)
+}
+
+# 训练不同核函数的Kriging模型并进行预测
+results = {}
+
+for name, kernel in kernels.items():
+    # 创建并训练Kriging模型
+    model = GaussianProcessRegressor(
+        kernel=kernel, 
+        n_restarts_optimizer=10,
+        normalize_y=True,
+        alpha=1e-10  # 数值稳定性的小常数
+    )
+    
+    model.fit(x_train.reshape(-1, 1), y_train)
+    
+    # 进行预测
+    y_pred, y_std = model.predict(x_test.reshape(-1, 1), return_std=True)
+    
+    # 计算MSE
+    mse = np.mean((y_pred - y_test) ** 2)
+    
+    # 存储结果
+    results[name] = {
+        'model': model,
+        'pred_mean': y_pred,
+        'pred_std': y_std,
+        'mse': mse
+    }
+    
+    print(f&quot;{name} Kernel - MSE: {mse:.6f}&quot;)
+    print(f&quot;Optimized kernel parameters: {model.kernel_}&quot;)
+
+# 可视化预测结果
+plt.figure(figsize=(14, 8))
+
+# 绘制真实函数
+plt.plot(x_test, y_test, 'k-', linewidth=3, label='True Function')
+
+# 绘制训练数据
+plt.scatter(x_train, y_train, c='k', s=60, label='Training Points')
+
+# 为每个模型绘制预测结果
+colors = ['b', 'r']
+for i, (name, res) in enumerate(results.items()):
+    plt.plot(x_test, res['pred_mean'], f'{colors[i]}-', linewidth=2.5, label=f'{name} Prediction')
+    plt.fill_between(
+        x_test.flatten(),
+        res['pred_mean'] - 2 * res['pred_std'],
+        res['pred_mean'] + 2 * res['pred_std'],
+        alpha=0.2,
+        color=colors[i],
+        label=f'{name} Uncertainty'
+    )
+
+plt.title('Kriging Model Predictions with Different Kernels', fontsize=18)
+plt.xlabel('x', fontsize=15)
+plt.ylabel('y', fontsize=15)
+plt.legend(fontsize=14)
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.savefig('kriging_predictions.png', dpi=300)
+plt.show()
+
+# 创建误差分析图
+plt.figure(figsize=(14, 6))
+
+# 计算每个模型的误差
+for i, (name, res) in enumerate(results.items()):
+    error = np.abs(res['pred_mean'] - y_test)
+    plt.plot(x_test, error, f'{colors[i]}-', linewidth=2, label=f'{name} Error')
+
+# 添加训练点位置的垂直线标记
+for x_point in x_train:
+    plt.axvline(x=x_point, color='gray', linestyle='--', alpha=0.3)
+
+plt.title('Absolute Error Comparison', fontsize=18)
+plt.xlabel('x', fontsize=15)
+plt.ylabel('Absolute Error', fontsize=15)
+plt.legend(fontsize=14)
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.savefig('kriging_error_comparison.png', dpi=300)
+plt.show()
+
+# 可视化方差/不确定性
+plt.figure(figsize=(14, 6))
+
+for i, (name, res) in enumerate(results.items()):
+    plt.plot(x_test, res['pred_std'], f'{colors[i]}-', linewidth=2, label=f'{name} Uncertainty')
+
+# 添加训练点位置的垂直线标记
+for x_point in x_train:
+    plt.axvline(x=x_point, color='gray', linestyle='--', alpha=0.3)
+
+plt.title('Prediction Uncertainty', fontsize=18)
+plt.xlabel('x', fontsize=15)
+plt.ylabel('Standard Deviation', fontsize=15)
+plt.legend(fontsize=14)
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.savefig('kriging_uncertainty.png', dpi=300)
+plt.show()
+
+# 输出详细的性能指标
+print(&quot;\nDetailed Performance Metrics:&quot;)
+print(&quot;-&quot; * 50)
+print(f&quot;{'Kernel':&lt;10} | {'MSE':&lt;10} | {'MAE':&lt;10} | {'Max Error':&lt;10}&quot;)
+print(&quot;-&quot; * 50)
+
+for name, res in results.items():
+    mae = np.mean(np.abs(res['pred_mean'] - y_test))
+    max_err = np.max(np.abs(res['pred_mean'] - y_test))
+    print(f&quot;{name:&lt;10} | {res['mse']:&lt;10.6f} | {mae:&lt;10.6f} | {max_err:&lt;10.6f}&quot;)
+
+</code></pre>
+<h2 id="标准np只能拟合单峰函数但是这里不是这个问题">标准Np只能拟合单峰函数（但是这里不是这个问题）</h2>
+<p>ELBO 通常假设一个比较简单的<strong>变分分布族</strong>（如高斯分布或各向同性高斯），这能方便优化计算，但<strong>高斯分布本身只能描述单峰分布</strong>。如果真实的后验分布是多峰的（例如有两个截然不同的“解释”都能合理生成观测结果），单个高斯根本难以把所有峰都覆盖。</p>
+<p>这时，为了最大化ELBO，变分分布会倾向于“平均”这些模式或者只覆盖其中一个模式，导致其它模式完全被忽略。这就是所谓的“<strong>模式崩塌（mode collapse）</strong>”或者“<strong>模态覆盖失败</strong>”。</p>
+<p><img src="assets/image-20250521211014969.png" alt="image-20250521211014969"></p>
+<p><img src="assets/image-20250521211026791.png" alt="image-20250521211026791"></p>
+<h2 id="神经过程借鉴kriging-空间相关性">神经过程借鉴Kriging 空间相关性</h2>
+<p><img src="assets/image-20250522095329738.png" alt="image-20250522095329738"></p>
+<p><img src="assets/image-20250522101825636.png" alt="image-20250522101825636"></p>
+<p><img src="assets/image-20250522102026558.png" alt="image-20250522102026558"></p>
+<p><img src="assets/image-20250522103100802.png" alt="image-20250522103100802"></p>
+<h1 id="计算人工智能论文规划">计算人工智能论文规划</h1>
+<ul>
+<li>什么是</li>
+</ul>
 
 </main>
 
