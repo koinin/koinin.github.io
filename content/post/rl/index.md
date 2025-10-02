@@ -1,9 +1,8 @@
-+++
-date = '2025-04-30T19:00:15+08:00'
-draft = false
-title = 'Rl'
-
-+++
+---
+title: "Rl"
+date: "2025-04-30T19:00:15+08:00"
+draft: false
+---
 
 ```python
 class QNetwork(nn.Module):

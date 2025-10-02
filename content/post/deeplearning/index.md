@@ -1,8 +1,8 @@
-+++
-date = '2025-02-17T10:04:23+08:00'
-draft = true
-title = 'Deeplearning'
-+++
+---
+title: "Deeplearning"
+date: "2025-02-17T10:04:23+08:00"
+draft: true
+---
 
 # deep-learning
 

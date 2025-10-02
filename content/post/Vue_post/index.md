@@ -1,9 +1,8 @@
-+++
-date = '2025-06-24T10:46:13+08:00'
-draft = true
-title = 'Vue_post'
-
-+++
+---
+title: "Vue_post"
+date: "2025-06-24T10:46:13+08:00"
+draft: true
+---
 
 Vue -> uni-app (HbuilderX)  -> 微信小程序
 

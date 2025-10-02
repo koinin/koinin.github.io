@@ -1,9 +1,8 @@
-+++
-date = '2025-02-24T16:40:12+08:00'
-draft = false
-title = 'KAN'
-
-+++
+---
+title: "KAN"
+date: "2025-02-24T16:40:12+08:00"
+draft: false
+---
 
 ## 梯度提升决策树
 

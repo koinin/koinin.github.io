@@ -1,8 +1,8 @@
-+++
-date = '2024-12-14T03:08:12+08:00'
-draft = false
-title = 'Gnuradio Wsl'
-+++
+---
+title: "Gnuradio Wsl"
+date: "2024-12-14T03:08:12+08:00"
+draft: false
+---
 
 记一个wsl安装gnuradio经历，学校有一个课是使用gnuradio玩usrp，然后建议在linux上安装，本次安装主要设计wsl上安装gnuradio。
 

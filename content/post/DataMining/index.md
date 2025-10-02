@@ -1,8 +1,8 @@
-+++
-date = '2024-12-10T19:17:52+08:00'
-draft = false
-title = 'DataMining'
-+++
+---
+title: "DataMining"
+date: "2024-12-10T19:17:52+08:00"
+draft: false
+---
 
 
 

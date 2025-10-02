@@ -1,8 +1,8 @@
-+++
-date = '2024-12-17T17:19:58+08:00'
-draft = false
-title = 'PINN'
-+++
+---
+title: "PINN"
+date: "2024-12-17T17:19:58+08:00"
+draft: false
+---
 
 # PINN:Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations
 

@@ -1,9 +1,8 @@
-+++
-date = '2025-03-19T13:24:47+08:00'
-draft = false
-title = 'Docker Cuda'
-
-+++
+---
+title: "Docker Cuda"
+date: "2025-03-19T13:24:47+08:00"
+draft: false
+---
 
 没想到这么久以后又遇到了cuda的问题，我再次记录一下我的理解
 

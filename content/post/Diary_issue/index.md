@@ -1,10 +1,8 @@
-+++
-
-date = '2025-05-02'
-draft = false
-title = 'Diary'
-
-+++
+---
+title: "Diary"
+date: "2025-05-02"
+draft: false
+---
 
 老是会忘记自己的配置，以下做一些记录
 

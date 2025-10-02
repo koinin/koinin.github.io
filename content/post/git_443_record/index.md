@@ -1,8 +1,8 @@
-+++
-date = '2025-01-17T13:02:02+08:00'
-draft = false
-title = 'Git_443_record'
-+++
+---
+title: "Git_443_record"
+date: "2025-01-17T13:02:02+08:00"
+draft: false
+---
 
 # 记录一次clash Tun模式下git失灵（push pill）
 > 参考https://ganzhixiong.com/p/b792e008/

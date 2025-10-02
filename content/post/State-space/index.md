@@ -1,9 +1,8 @@
-+++
-date = '2025-02-24T15:23:23+08:00'
-draft = false
-title = 'State Space'
-
-+++
+---
+title: "State Space"
+date: "2025-02-24T15:23:23+08:00"
+draft: false
+---
 
 ## 状态空间方程
 

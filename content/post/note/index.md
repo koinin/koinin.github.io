@@ -1,9 +1,8 @@
-+++
-date = "2025-03-02"
-draft = false
-title = 'Note'
-
-+++
+---
+title: "Note"
+date: "2025-03-02"
+draft: false
+---
 
 [toc]
 
