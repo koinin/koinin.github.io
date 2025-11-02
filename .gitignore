@@ -1,0 +1,7 @@
+# Ignore MiscTalks folder in content/post
+content/post/MiscTalks/
+
+# Ignore Hugo generated static site and cache
+public/
+resources/
+
